@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
-            $table->text('descriptiion')->nullable();
+            $table->text('description')->nullable();
             $table->string('category')->default('general');
             $table->enum('priority', ['low', 'medium', 'high'])->default('medium');
             $table->date('due_date')->nullable();
