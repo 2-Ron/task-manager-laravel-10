@@ -45,6 +45,20 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Add this inside the task list item, after the description -->
+                            <div class="mt-4 flex space-x-3">
+                                <a href="{{ route('tasks.edit', $task) }}" 
+                                    class="text-sm text-blue-600 hover:text-blue-800">Edit</a>
+                                
+                                <form action="{{ route('tasks.destroy', $task) }}" method="POST" class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-sm text-red-600 hover:text-red-800" 
+                                        onclick="return confirm('Are you sure you want to delete this task?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
                         </li>
                     @endforeach
                 </ul>
